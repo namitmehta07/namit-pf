@@ -1,0 +1,141 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Portfolio Design System - Dark theme with red accents */
+    --background: 0 0% 8%;
+    --foreground: 0 0% 100%;
+
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 0 0% 8%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 0 100% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 0 0% 20%;
+    --muted-foreground: 0 0% 70%;
+
+    --accent: 0 100% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 0 0% 20%;
+    --input: 0 0% 15%;
+    --ring: 0 100% 50%;
+
+    --radius: 1rem;
+
+    /* Portfolio specific colors */
+    --portfolio-red: 0 100% 50%;
+    --portfolio-red-dark: 0 100% 40%;
+    --portfolio-black: 0 0% 8%;
+    --portfolio-white: 0 0% 100%;
+    --portfolio-gray: 0 0% 20%;
+
+    /* Gradients */
+    --gradient-red: linear-gradient(135deg, hsl(0 100% 50%), hsl(0 80% 30%));
+    --gradient-red-glow: radial-gradient(circle, hsl(0 100% 50% / 0.3), transparent 70%);
+    --gradient-card: linear-gradient(135deg, hsl(0 100% 50%), hsl(0 80% 35%));
+
+    /* Typography */
+    --font-script: 'Dancing Script', cursive;
+    --font-display: 'Montserrat', sans-serif;
+
+    /* Shadows and effects */
+    --shadow-red-glow: 0 0 50px hsl(0 100% 50% / 0.3);
+    --shadow-card: 0 10px 30px hsl(0 0% 0% / 0.5);
+    --shadow-intense: 0 20px 60px hsl(0 100% 50% / 0.2);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .dark {
+    --background: 0 0% 8%;
+    --foreground: 0 0% 100%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-display;
+  }
+}
+
+/* Portfolio Custom Styles */
+@layer components {
+  .text-3d {
+    text-shadow: 
+      2px 2px 0px hsl(var(--portfolio-red-dark)),
+      4px 4px 0px hsl(var(--portfolio-red-dark)),
+      6px 6px 0px hsl(var(--portfolio-red-dark)),
+      8px 8px 0px hsl(var(--portfolio-red-dark)),
+      10px 10px 20px hsl(0 0% 0% / 0.5);
+  }
+
+  .text-script {
+    font-family: var(--font-script);
+  }
+
+  .text-display {
+    font-family: var(--font-display);
+  }
+
+  .gradient-text {
+    background: var(--gradient-red);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .card-gradient {
+    background: var(--gradient-card);
+  }
+
+  .glow-red {
+    box-shadow: var(--shadow-red-glow);
+  }
+
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+
+  .transition-bounce {
+    transition: var(--transition-bounce);
+  }
+
+  .portfolio-btn {
+    @apply bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8 py-3 font-semibold transition-smooth;
+  }
+
+  .portfolio-btn-outline {
+    @apply border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground rounded-full px-8 py-3 font-semibold transition-smooth;
+  }
+
+  .project-card {
+    @apply card-gradient rounded-3xl p-8 shadow-lg transition-smooth hover:scale-105 hover:shadow-2xl;
+  }
+
+  .client-logo {
+    @apply bg-white/10 backdrop-blur-sm rounded-2xl p-4 transition-smooth hover:bg-white/20 hover:scale-105;
+  }
+}
