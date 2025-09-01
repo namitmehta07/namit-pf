@@ -7,7 +7,7 @@ const Clients = () => {
     },
     {
       name: "Spark Point Education",
-      logo: "SPE",
+      logo: "Spark Point Eductaion",
       description: "Educational Platform"
     },
     {

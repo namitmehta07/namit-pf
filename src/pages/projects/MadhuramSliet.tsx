@@ -1,17 +1,34 @@
-import { ArrowLeft, ExternalLink, Instagram, Facebook, Globe } from "lucide-react";
+import React, { useState } from "react";
+import { ArrowLeft, Instagram, Facebook, Globe } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
-const MadhuramSliet = () => {
-  const portfolioItems = [
-    "/lovable-uploads/866b14c3-daf1-4d8d-a16c-20ddcf542517.png"
-  ];
+const portfolioItems = [
+  {
+    id: "tshirt-1",
+    title: "T-Shirt Design Collection",
+    images: [
+      "https://i.ibb.co/Pzfxwq25/image.png",
+      "https://i.ibb.co/gb9LwpGP/image.png",
+    ],
+  },
+  {
+    id: "idcard-1",
+    title: "ID Card Designs",
+    images: [
+      "https://i.ibb.co/GQhMLx8z/image.png",
+      "https://i.ibb.co/B5X80DBr/image.png",
+      "https://i.ibb.co/bYjqrYw/image.png",
+    ],
+  },
+];
 
+const MadhuramSliet = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background relative">
       {/* Header */}
-      <header className="py-8 px-4 sm:px-6 lg:px-8 border-b border-primary/20">
+      <header className="py-8 px-4 sm:px-6 lg:px-8 border-b border-primary/20 sticky top-0 bg-background z-20">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <Link to="/" className="flex items-center space-x-2 text-primary hover:text-primary/80 transition-smooth">
             <ArrowLeft className="w-5 h-5" />
@@ -22,112 +39,58 @@ const MadhuramSliet = () => {
       </header>
 
       {/* Hero Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-portfolio-black via-portfolio-black to-portfolio-red/10"></div>
-        <div className="relative z-10 max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Project Info */}
-            <div className="space-y-8">
-              <div className="space-y-4">
-                <div className="inline-block px-4 py-2 bg-primary/20 rounded-full">
-                  <span className="text-primary font-semibold">Cultural Event Branding</span>
-                </div>
-                <h2 className="text-4xl md:text-5xl font-black text-foreground">
-                  MADHURAM'25 <span className="gradient-text">SLIET</span>
-                </h2>
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  Elegant logo and branding design for Madhuram'25, a cultural festival at SLIET. 
-                  Created a sophisticated visual identity that balances traditional cultural elements 
-                  with modern design aesthetics, perfectly representing the spirit of this cultural celebration.
-                </p>
-              </div>
+      <section className="py-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden max-w-7xl mx-auto">
+        {/* ... your existing Hero content ... */}
+      </section>
 
-              <div className="space-y-4">
-                <h3 className="text-xl font-semibold text-foreground">Services Provided:</h3>
-                <ul className="space-y-2 text-muted-foreground">
-                  <li>• Cultural Event Logo Design</li>
-                  <li>• Festival Branding Identity</li>
-                  <li>• Traditional-Modern Design Fusion</li>
-                  <li>• Event Promotional Materials</li>
-                  <li>• Cultural Marketing Assets</li>
-                </ul>
-              </div>
-
-              <div className="flex items-center space-x-4">
-                <Button variant="default" className="portfolio-btn">
-                  View Live Project
-                </Button>
-                <div className="flex space-x-3">
-                  <button className="w-10 h-10 bg-primary/20 hover:bg-primary/30 rounded-full flex items-center justify-center transition-smooth">
-                    <Instagram className="w-5 h-5 text-primary" />
-                  </button>
-                  <button className="w-10 h-10 bg-primary/20 hover:bg-primary/30 rounded-full flex items-center justify-center transition-smooth">
-                    <Facebook className="w-5 h-5 text-primary" />
-                  </button>
-                  <button className="w-10 h-10 bg-primary/20 hover:bg-primary/30 rounded-full flex items-center justify-center transition-smooth">
-                    <Globe className="w-5 h-5 text-primary" />
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            {/* Project Visual */}
-            <div className="relative">
-              <div className="project-card">
-                <div className="text-center text-white space-y-4 p-8">
-                  <h3 className="text-xl font-bold">MADHURAM'25 SLIET</h3>
-                  <div className="bg-white/10 rounded-xl p-4">
-                    <div className="text-lg font-semibold text-white">Madhuram</div>
-                    <div className="text-sm">Cultural Festival 2025</div>
-                  </div>
-                  <div className="flex justify-center space-x-4">
-                    <Instagram className="w-5 h-5" />
-                    <Facebook className="w-5 h-5" />
-                    <Globe className="w-5 h-5" />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+      {/* Portfolio Gallery Section */}
+      <section id="portfolio" className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <h2 className="text-3xl font-bold text-foreground mb-8 text-center">Product Gallery</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {portfolioItems.map(({ id, title, images }) => (
+            <Card key={id} className="overflow-hidden">
+              <CardContent className="p-0 cursor-pointer">
+                <img
+                  src={images[0]}
+                  alt={title}
+                  className="w-full h-auto object-cover"
+                />
+                <div className="text-center p-4 text-lg font-semibold">{title}</div>
+              </CardContent>
+            </Card>
+          ))}
         </div>
       </section>
 
-      {/* Portfolio Gallery */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <h3 className="text-3xl font-bold text-foreground mb-8 text-center">Portfolio Gallery</h3>
-          
-          <div className="grid grid-cols-1 gap-8">
-            {portfolioItems.map((item, index) => (
-              <Card key={index} className="overflow-hidden">
+      {/* Product Sections - All on same page */}
+      {portfolioItems.map(({ id, title, images }) => (
+        <section key={id} id={id} className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-primary/20">
+          <h2 className="text-3xl font-bold text-foreground mb-8">{title}</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+            {images.map((src, idx) => (
+              <Card key={idx}>
                 <CardContent className="p-0">
-                  <img 
-                    src={item} 
-                    alt={`Madhuram SLIET Design ${index + 1}`}
-                    className="w-full h-auto object-cover"
-                  />
+                  <img src={src} alt={`${title} ${idx + 1}`} className="w-full h-auto object-cover" />
                 </CardContent>
               </Card>
             ))}
           </div>
-        </div>
-      </section>
+        </section>
+      ))}
 
       {/* CTA Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-primary/5">
-        <div className="max-w-4xl mx-auto text-center space-y-6">
-          <h3 className="text-3xl font-bold text-foreground">Ready to Start Your Project?</h3>
-          <p className="text-lg text-muted-foreground">
-            Let's create something amazing together. Contact me to discuss your design needs.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/#contact" className="portfolio-btn">
-              Get Started
-            </Link>
-            <Link to="/" className="portfolio-btn-outline">
-              View More Projects
-            </Link>
-          </div>
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-primary/5 max-w-7xl mx-auto text-center">
+        <h3 className="text-3xl font-bold text-foreground mb-4">Ready to Start Your Project?</h3>
+        <p className="text-lg text-muted-foreground mb-8">
+          Let's create something amazing together. Contact me to discuss your design needs.
+        </p>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <Link to="/#contact" className="portfolio-btn">
+            Get Started
+          </Link>
+          <Link to="/" className="portfolio-btn-outline">
+            View More Projects
+          </Link>
         </div>
       </section>
     </div>

@@ -1,11 +1,50 @@
-import { ArrowLeft, ExternalLink, Instagram, Facebook, Globe } from "lucide-react";
+import { ArrowLeft, Instagram, Facebook, Globe } from "lucide-react";
 import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 
-const SparkPointEducation = () => {
-  const portfolioItems = [
-    "/lovable-uploads/27e8793b-0822-4175-b7cf-18693fa0f1ae.png"
+const InstagramPostsPage = () => {
+  const instagramPosts = [
+    {
+      id: 1,
+      username: "techFest SLIET",
+      profilePic: "https://i.ibb.co/nqCP5brL/profile-pic-1.png",
+      imageUrl: "https://i.ibb.co/vxRr3B9B/post-image-1.jpg",
+      caption: "Our latest IELTS workshop was a great success! #IELTS #Education",
+    },
+    {
+      id: 2,
+      username: "techFest SLIET",
+      profilePic: "https://i.ibb.co/67y7kGGz/profile2.png",
+      imageUrl: "https://i.ibb.co/C3CcC9yD/post-image-2.jpg",
+      caption: "Preparing students for SAT with expert coaching. #SATprep #TestPrep",
+    },
+    {
+      id: 3,
+      username: "techFest SLIET",
+      profilePic: "https://i.ibb.co/353g1X0/profile3.png",
+      imageUrl: "https://i.ibb.co/XfC2krfz/post-image-3.jpg",
+      caption: "Interactive social media graphics to engage students creatively.",
+    },
+    {
+      id: 4,
+      username: "sparkpointedu",
+      profilePic: "https://i.ibb.co/d0JVB55f/profile4.png",
+      imageUrl: "https://i.ibb.co/NnLCtmW0/post-image-4.jpg",
+      caption: "Brand identity design that stands out. #branding #design",
+    },
+    {
+      id: 5,
+      username: "sparkpointedu",
+      profilePic: "https://i.ibb.co/MxxLzSvT/profile5.png",
+      imageUrl: "https://i.ibb.co/6cTdz2xQ/post-image-5.jpg",
+      caption: "Promotional materials to boost your coaching center.",
+    },
+    {
+      id: 6,
+      username: "sparkpointedu",
+      profilePic: "https://i.ibb.co/0R4sggRx/profile6.png",
+      imageUrl: "https://i.ibb.co/0R4sggRx/post-image-6.jpg",
+      caption: "Educational content designs for better learning engagement.",
+    },
   ];
 
   return (
@@ -17,116 +56,71 @@ const SparkPointEducation = () => {
             <ArrowLeft className="w-5 h-5" />
             <span>Back to Portfolio</span>
           </Link>
-          <h1 className="text-2xl font-bold text-foreground">Spark Point Education</h1>
+          <h1 className="text-2xl font-bold text-foreground">Instagram Posts</h1>
         </div>
       </header>
 
-      {/* Hero Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-portfolio-black via-portfolio-black to-portfolio-red/10"></div>
-        <div className="relative z-10 max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Project Info */}
-            <div className="space-y-8">
-              <div className="space-y-4">
-                <div className="inline-block px-4 py-2 bg-primary/20 rounded-full">
-                  <span className="text-primary font-semibold">Education Platform</span>
-                </div>
-                <h2 className="text-4xl md:text-5xl font-black text-foreground">
-                  SPARK POINT <span className="gradient-text">EDUCATION</span>
-                </h2>
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  Complete branding and marketing design suite for IELTS & SAT coaching institute. 
-                  Created comprehensive visual identity including social media graphics, promotional materials, 
-                  and educational content designs that effectively communicate their expertise in test preparation.
-                </p>
-              </div>
-
-              <div className="space-y-4">
-                <h3 className="text-xl font-semibold text-foreground">Services Provided:</h3>
-                <ul className="space-y-2 text-muted-foreground">
-                  <li>• Brand Identity & Logo Design</li>
-                  <li>• Social Media Graphics</li>
-                  <li>• Educational Content Design</li>
-                  <li>• Promotional Materials</li>
-                  <li>• IELTS & SAT Coaching Collateral</li>
-                </ul>
-              </div>
-
-              <div className="flex items-center space-x-4">
-                <Button variant="default" className="portfolio-btn">
-                  View Live Project
-                </Button>
-                <div className="flex space-x-3">
-                  <button className="w-10 h-10 bg-primary/20 hover:bg-primary/30 rounded-full flex items-center justify-center transition-smooth">
-                    <Instagram className="w-5 h-5 text-primary" />
-                  </button>
-                  <button className="w-10 h-10 bg-primary/20 hover:bg-primary/30 rounded-full flex items-center justify-center transition-smooth">
-                    <Facebook className="w-5 h-5 text-primary" />
-                  </button>
-                  <button className="w-10 h-10 bg-primary/20 hover:bg-primary/30 rounded-full flex items-center justify-center transition-smooth">
-                    <Globe className="w-5 h-5 text-primary" />
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            {/* Project Visual */}
-            <div className="relative">
-              <div className="project-card">
-                <div className="text-center text-white space-y-4 p-8">
-                  <h3 className="text-xl font-bold">SPARK POINT EDUCATION</h3>
-                  <div className="bg-white/10 rounded-xl p-4">
-                    <div className="text-lg font-semibold text-blue-400">spark point</div>
-                    <div className="text-sm">education</div>
-                  </div>
-                  <div className="flex justify-center space-x-4">
-                    <Instagram className="w-5 h-5" />
-                    <Facebook className="w-5 h-5" />
-                    <Globe className="w-5 h-5" />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Portfolio Gallery */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <h3 className="text-3xl font-bold text-foreground mb-8 text-center">Portfolio Gallery</h3>
-          
-          <div className="grid grid-cols-1 gap-8">
-            {portfolioItems.map((item, index) => (
-              <Card key={index} className="overflow-hidden">
-                <CardContent className="p-0">
-                  <img 
-                    src={item} 
-                    alt={`Spark Point Education Design ${index + 1}`}
-                    className="w-full h-auto object-cover"
+      {/* Instagram Posts Gallery */}
+      <section className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 className="text-3xl font-bold text-foreground mb-12 text-center">Latest Instagram Posts</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+          {instagramPosts.map(post => (
+            <div
+              key={post.id}
+              className="rounded-lg overflow-hidden shadow-lg bg-white hover:shadow-xl transition-shadow duration-300"
+            >
+              <img
+                src={post.imageUrl}
+                alt={`Post by ${post.username}`}
+                className="w-full aspect-[4/5] object-cover"
+                loading="lazy"
+                decoding="async"
+              />
+              <div className="p-4">
+                <div className="flex items-center mb-2">
+                  <img
+                    src={post.profilePic}
+                    alt={`${post.username} profile`}
+                    className="w-10 h-10 rounded-full mr-3 object-cover"
                   />
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+                  <span className="font-semibold text-primary">@{post.username}</span>
+                </div>
+                <p className="text-muted-foreground text-sm">{post.caption}</p>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-primary/5">
+      {/* Social Links CTA */}
+      <section className="py-12 px-4 sm:px-6 lg:px-8 bg-primary/5">
         <div className="max-w-4xl mx-auto text-center space-y-6">
-          <h3 className="text-3xl font-bold text-foreground">Ready to Start Your Project?</h3>
-          <p className="text-lg text-muted-foreground">
-            Let's create something amazing together. Contact me to discuss your design needs.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/#contact" className="portfolio-btn">
-              Get Started
-            </Link>
-            <Link to="/" className="portfolio-btn-outline">
-              View More Projects
-            </Link>
+          <h3 className="text-3xl font-bold text-foreground">Follow Us on Social Media</h3>
+          <div className="flex justify-center space-x-6">
+            <a
+              href="https://instagram.com/sparkpointedu"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-10 h-10 bg-primary/20 hover:bg-primary/30 rounded-full flex items-center justify-center transition-smooth"
+            >
+              <Instagram className="w-5 h-5 text-primary" />
+            </a>
+            <a
+              href="https://facebook.com/sparkpointedu"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-10 h-10 bg-primary/20 hover:bg-primary/30 rounded-full flex items-center justify-center transition-smooth"
+            >
+              <Facebook className="w-5 h-5 text-primary" />
+            </a>
+            <a
+              href="https://sparkpointedu.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-10 h-10 bg-primary/20 hover:bg-primary/30 rounded-full flex items-center justify-center transition-smooth"
+            >
+              <Globe className="w-5 h-5 text-primary" />
+            </a>
           </div>
         </div>
       </section>
@@ -134,4 +128,4 @@ const SparkPointEducation = () => {
   );
 };
 
-export default SparkPointEducation;
+export default InstagramPostsPage;
